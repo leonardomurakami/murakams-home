@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}About - Leonardo Murakami - Site Reliability Engineer{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <div class="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 flex items-center justify-center p-6 shadow-lg">
+                <img src="/static/img/logo_no_background.svg" alt="Leonardo Murakami Logo" class="w-full h-full object-contain">
+            </div>
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">About Me</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                I'm a passionate Site Reliability Engineer who loves creating robust systems and exploring new technologies.
+            </p>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="space-y-12">
+            <!-- Introduction -->
+            <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Introduction</h2>
+                <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
+                    <p class="mb-4">
+                        Hello! I'm Leonardo, a passionate Site Reliability Engineer with a love for creating 
+                        robust systems and ensuring they run smoothly. My journey in technology started when I was 
+                        young through programming challenges, which sparked my interest in problem-solving through code.
+                    </p>
+                    <p class="mb-4">
+                        I initially tried my hand at game development but never quite got the hang of it. During my 
+                        first year of engineering degree at IME-USP, I landed a Data Scientist Intern position at Loft. 
+                        From there, I evolved through different roles - from Data Science to MLOps, and finally found 
+                        my calling in the SRE world, where I get to combine my love for coding with systems reliability.
+                    </p>
+                    <p>
+                        When I'm not ensuring systems stay up and running, you can find me playing baseball, 
+                        watching football (go Palmeiras!), or diving into a good game. I'm currently pursuing 
+                        my Computer Science degree at IME-USP while working full-time.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Skills & Technologies -->
+            <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Skills & Technologies</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Programming Languages -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                            <i class="fas fa-code text-primary-600 dark:text-primary-400 mr-2"></i>
+                            Programming Languages
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Python</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-full h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Go</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-4/5 h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">C/C++</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-4/5 h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Bash</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-3/5 h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Frameworks & Tools -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                            <i class="fas fa-tools text-primary-600 dark:text-primary-400 mr-2"></i>
+                            Frameworks & Tools
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">AWS</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-full h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Kubernetes</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-full h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Docker</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-full h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-700 dark:text-gray-300">Terraform</span>
+                                <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+                                    <div class="w-full h-full bg-primary-600 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Experience Highlights -->
+            <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Experience Highlights</h2>
+                
+                <div class="space-y-6">
+                    <div class="border-l-4 border-primary-600 pl-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Site Reliability Engineering</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">
+                            Expert in building and maintaining highly reliable, scalable systems with focus on 
+                            uptime, performance, and incident response. Experience with SLIs, SLOs, and error budgets.
+                        </p>
+                    </div>
+                    
+                    <div class="border-l-4 border-primary-600 pl-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Cloud Infrastructure & Automation</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">
+                            Proficient in AWS cloud services, Infrastructure as Code with Terraform, 
+                            and Kubernetes orchestration for scalable, automated deployments.
+                        </p>
+                    </div>
+                    
+                    <div class="border-l-4 border-primary-600 pl-6">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">MLOps & Data Engineering</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mt-2">
+                            Background in machine learning operations, data pipelines, and transitioning 
+                            ML models from development to production environments.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Interests & Values -->
+            <section class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Interests & Values</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-server text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Reliability</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Building systems that are robust, scalable, and always available when you need them.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-baseball-ball text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Sports</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Playing baseball and watching football (Avanti Palestra!) to stay active and unwind.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-graduation-cap text-2xl text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Learning</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">
+                            Pursuing CS degree at IME-USP while continuously learning new technologies.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="text-center">
+                <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg shadow-md p-8 text-white">
+                    <h2 class="text-2xl font-bold mb-4">Let's Work Together</h2>
+                    <p class="text-lg mb-6 text-primary-100">
+                        Interested in collaborating? I'd love to hear about your project!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="/contact" 
+                           class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Get In Touch
+                        </a>
+                        <a href="/projects" 
+                           class="inline-flex items-center px-6 py-3 border border-white text-white font-medium rounded-lg hover:bg-white hover:text-primary-600 transition-colors">
+                            <i class="fas fa-folder mr-2"></i>
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

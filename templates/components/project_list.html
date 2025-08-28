@@ -1,0 +1,119 @@
+<!-- Project List Component - Used by HTMX for dynamic updates -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for project in projects %}
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 overflow-hidden group">
+        <!-- Project Image/Icon -->
+        <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center relative overflow-hidden">
+            {% if project.image_url %}
+                <img src="{{ project.image_url }}" alt="{{ project.name }}" class="w-full h-full object-cover">
+            {% else %}
+                <i class="fas fa-code text-4xl text-white group-hover:scale-110 transition-transform duration-200"></i>
+            {% endif %}
+            
+            <!-- GitHub Badge -->
+            {% if project.source == 'github' %}
+                <div class="absolute top-3 right-3 bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
+                    <i class="fab fa-github mr-1"></i>
+                    GitHub
+                </div>
+            {% endif %}
+            
+            <!-- Stars Badge (for GitHub repos) -->
+            {% if project.stars is defined and project.stars > 0 %}
+                <div class="absolute top-3 left-3 bg-yellow-500 text-white px-2 py-1 rounded text-xs">
+                    <i class="fas fa-star mr-1"></i>
+                    {{ project.stars }}
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Project Content -->
+        <div class="p-6">
+            <div class="flex items-start justify-between mb-3">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    {{ project.name }}
+                </h3>
+                {% if project.language %}
+                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full">
+                        {{ project.language }}
+                    </span>
+                {% endif %}
+            </div>
+            
+            <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                {{ project.description or "No description available." }}
+            </p>
+            
+            <!-- Technologies -->
+            {% if project.technologies %}
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {% for tech in project.technologies.split(',')[:4] %}
+                        <span class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-xs rounded-full">
+                            {{ tech.strip() }}
+                        </span>
+                    {% endfor %}
+                    {% if project.technologies.split(',')|length > 4 %}
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-full">
+                            +{{ project.technologies.split(',')|length - 4 }} more
+                        </span>
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+            <!-- Updated Date (for GitHub repos) -->
+            {% if project.updated_at %}
+                <div class="text-xs text-gray-500 dark:text-gray-500 mb-4">
+                    Updated {{ project.updated_at[:10] }}
+                </div>
+            {% endif %}
+            
+            <!-- Action Buttons -->
+            <div class="flex gap-3">
+                {% if project.github_url %}
+                    <a href="{{ project.github_url }}" 
+                       target="_blank"
+                       class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white text-sm font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors">
+                        <i class="fab fa-github mr-2"></i>
+                        Code
+                    </a>
+                {% endif %}
+                
+                {% if project.demo_url %}
+                    <a href="{{ project.demo_url }}" 
+                       target="_blank"
+                       class="flex-1 inline-flex items-center justify-center px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors">
+                        <i class="fas fa-external-link-alt mr-2"></i>
+                        Live Demo
+                    </a>
+                {% endif %}
+                
+                <!-- If no links available, show a coming soon message -->
+                {% if not project.github_url and not project.demo_url %}
+                    <div class="flex-1 text-center px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-sm rounded-lg">
+                        <i class="fas fa-clock mr-2"></i>
+                        Coming Soon
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- No results message -->
+{% if not projects %}
+<div class="text-center py-12">
+    <i class="fas fa-search text-6xl text-gray-300 dark:text-gray-600 mb-4"></i>
+    <h3 class="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No Projects Found</h3>
+    <p class="text-gray-500 dark:text-gray-500">Try adjusting your search terms or check back later for new projects.</p>
+</div>
+{% endif %}
+
+<style>
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+</style>

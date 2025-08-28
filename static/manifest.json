@@ -1,0 +1,28 @@
+{
+  "name": "Leonardo Murakami - Site Reliability Engineer",
+  "short_name": "Leonardo Murakami",
+  "description": "Site Reliability Engineer specializing in AWS, Kubernetes, and infrastructure automation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#01426e",
+  "theme_color": "#0277bd",
+  "icons": [
+    {
+      "src": "/static/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/img/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/static/img/logo_no_background.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

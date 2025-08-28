@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block title %}Resume - Leonardo Murakami - Site Reliability Engineer{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Resume</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                A comprehensive overview of my professional experience, skills, and achievements.
+            </p>
+            <div class="mt-6">
+                <a href="#" 
+                   class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors">
+                    <i class="fas fa-download mr-2"></i>
+                    Download PDF
+                </a>
+            </div>
+        </div>
+        
+        <!-- Resume Content -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <!-- Personal Info Header -->
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-8 text-white">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <div class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center p-4">
+                        <img src="/static/img/logo_no_background.svg" alt="Leonardo Murakami Logo" class="w-full h-full object-contain">
+                    </div>
+                    <div class="text-center md:text-left flex-1">
+                        <h2 class="text-3xl font-bold mb-2">Leonardo Murakami</h2>
+                        <p class="text-xl text-primary-100 mb-4">Site Reliability Engineer</p>
+                        <div class="flex flex-col md:flex-row gap-4 text-primary-100">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                contato@murakams.com
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                Brazil - Remote Available
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fab fa-github mr-2"></i>
+                                github.com/leonardomurakami
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resume Body -->
+            <div class="p-8 space-y-8">
+                <!-- Professional Summary -->
+                <section>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <i class="fas fa-user-tie text-primary-600 dark:text-primary-400 mr-3"></i>
+                        Professional Summary
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Passionate Site Reliability Engineer with 6+ years of experience across Data Science, MLOps, 
+                        and Site Reliability Engineering. Expert in AWS cloud infrastructure, Kubernetes orchestration, 
+                        and Infrastructure as Code. Strong background in building and maintaining highly available systems 
+                        with focus on reliability, scalability, and performance. Currently pursuing Computer Science degree 
+                        at IME-USP while working full-time.
+                    </p>
+                </section>
+                
+                <!-- Experience -->
+                <section>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-briefcase text-primary-600 dark:text-primary-400 mr-3"></i>
+                        Professional Experience
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Current Role -->
+                        <div class="border-l-4 border-primary-600 pl-6">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Site Reliability Engineer L2</h4>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2025 - Present</span>
+                            </div>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
+                                    Leading incident response and post-mortem processes to maintain high system availability
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
+                                    Designing and implementing monitoring, alerting, and observability solutions
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
+                                    Mentoring junior SREs and establishing reliability best practices across teams
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Previous Role -->
+                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Site Reliability Engineer</h4>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2024 - Dec 2024</span>
+                            </div>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Managed Kubernetes clusters and automated infrastructure deployments using Terraform
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Implemented monitoring and alerting systems to proactively identify system issues
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Participated in on-call rotations and incident response procedures
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- MLOps Role -->
+                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior MLOps Engineer</h4>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2022 - Dec 2023</span>
+                            </div>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Built and maintained ML model deployment pipelines using Docker and Kubernetes
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Developed infrastructure automation for ML training and inference workloads
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Collaborated with data science teams to productionize machine learning models
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Early Roles -->
+                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Data Scientist → Data Scientist Intern</h4>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2019 - Dec 2021</span>
+                            </div>
+                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Developed machine learning models for real estate price prediction and market analysis
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Created data pipelines and ETL processes using Python and SQL
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
+                                    Collaborated with product teams to deliver data-driven insights and recommendations
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Technical Skills -->
+                <section>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-cog text-primary-600 dark:text-primary-400 mr-3"></i>
+                        Technical Skills
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Programming Languages -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Programming Languages</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Python</span>
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Go</span>
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">C/C++</span>
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">Bash</span>
+                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 text-sm rounded-full">SQL</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Cloud & Infrastructure -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Cloud & Infrastructure</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm rounded-full">AWS</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm rounded-full">Kubernetes</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm rounded-full">Docker</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm rounded-full">Terraform</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-sm rounded-full">Helm</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Monitoring & Observability -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Monitoring & Observability</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Prometheus</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Grafana</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">CloudWatch</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">Datadog</span>
+                                <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full">ELK Stack</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Data & ML -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Data & ML</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">MLOps</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Data Pipelines</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">PostgreSQL</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">BigQuery</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-sm rounded-full">Scikit-learn</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Tools & Others -->
+                        <div>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Tools & Methodologies</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">Git</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">Linux</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">CI/CD</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">SLI/SLO</span>
+                                <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm rounded-full">Incident Response</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Education -->
+                <section>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-graduation-cap text-primary-600 dark:text-primary-400 mr-3"></i>
+                        Education
+                    </h3>
+                    
+                    <div class="border-l-4 border-primary-600 pl-6">
+                        <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Bachelor of Science in Computer Science</h4>
+                        <p class="text-primary-600 dark:text-primary-400 font-medium">IME-USP (Instituto de Matemática e Estatística - Universidade de São Paulo) • Currently Enrolled</p>
+                        <p class="text-gray-600 dark:text-gray-300 mt-2">
+                            Pursuing degree while working full-time. Focused on algorithms, data structures, 
+                            software engineering, and systems design.
+                        </p>
+                    </div>
+                </section>
+                
+                <!-- Certifications -->
+                <!-- 
+                <section>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-certificate text-primary-600 dark:text-primary-400 mr-3"></i>
+                        Certifications
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">AWS Certified Solutions Architect</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Amazon Web Services • 2023</p>
+                        </div>
+                        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-900 dark:text-white">Professional Scrum Master I</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Scrum.org • 2022</p>
+                        </div>
+                    </div>
+                </section>
+                -->
+            </div>
+        </div>
+        
+        <!-- Contact CTA -->
+        <div class="mt-12 text-center">
+            <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg shadow-md p-8 text-white">
+                <h2 class="text-2xl font-bold mb-4">Interested in Working Together?</h2>
+                <p class="text-lg mb-6 text-primary-100">
+                    I'm always open to discussing new opportunities and exciting projects.
+                </p>
+                <a href="/contact" 
+                   class="inline-flex items-center px-6 py-3 bg-white text-primary-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Contact Me
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}Contact - Leonardo Murakami - Site Reliability Engineer{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get In Touch</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                I'd love to hear from you! Whether you have a project in mind, want to collaborate, 
+                or just want to say hello, feel free to reach out.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Information -->
+            <div class="space-y-8">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Let's Connect</h2>
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-envelope text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Email</h3>
+                                <p class="text-gray-600 dark:text-gray-400">contato@murakams.com</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Location</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Brazil - Available for remote work</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Response Time -->
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-clock text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900 dark:text-white">Response Time</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Maybe</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Follow Me</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://github.com/leonardomurakami" 
+                           target="_blank"
+                           class="w-10 h-10 bg-gray-900 hover:bg-gray-800 text-white rounded-lg flex items-center justify-center transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/leonardo-murakami/" 
+                           target="_blank"
+                           class="w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/lhmurakami" 
+                           target="_blank"
+                           class="w-10 h-10 bg-blue-400 hover:bg-blue-500 text-white rounded-lg flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
+                
+                <form 
+                    hx-post="/contact"
+                    hx-target="#form-response"
+                    hx-indicator="#form-loading"
+                    hx-on::after-request="if(event.detail.successful) this.reset()"
+                    class="space-y-6"
+                >
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Name *
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="Your full name"
+                        >
+                    </div>
+                    
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Email *
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+                    
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            Message *
+                        </label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            rows="5" 
+                            required
+                            class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-vertical"
+                            placeholder="Tell me about your project or just say hello!"
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div>
+                        <button 
+                            type="submit"
+                            class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                        >
+                            <span class="htmx-indicator">
+                                <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                            </span>
+                            <span id="form-loading" class="htmx-indicator hidden">Sending...</span>
+                            <span class="htmx-no-indicator">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <!-- Form Response Area -->
+                    <div id="form-response"></div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Additional Info -->
+        <div class="mt-16 text-center">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    Prefer a Different Way to Connect?
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    You can also reach out to me directly via email or connect with me on social media. 
+                    I'm always open to discussing new opportunities and interesting projects.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:contato@murakams.com" 
+                       class="inline-flex items-center px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 font-medium rounded-lg hover:bg-primary-50 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Direct Email
+                    </a>
+                    <a href="/resume" 
+                       class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors">
+                        <i class="fas fa-file-alt mr-2"></i>
+                        View Resume
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: inline-flex;
+}
+
+.htmx-request .htmx-no-indicator {
+    display: none;
+}
+</style>
+{% endblock %}

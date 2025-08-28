@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Projects - Leonardo Murakami{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Projects</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                A collection of projects I've worked on, from personal experiments to professional applications.
+                You can search and filter through them below.
+            </p>
+        </div>
+        
+        <!-- Search and Filter Section -->
+        <div class="mb-8">
+            <div class="max-w-md mx-auto">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        id="project-search"
+                        name="q"
+                        value="{{ search }}"
+                        placeholder="Search projects..."
+                        class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                        hx-get="/htmx/projects/search"
+                        hx-trigger="input changed delay:300ms, search"
+                        hx-target="#projects-container"
+                        hx-indicator="#search-loading"
+                    >
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                    <div id="search-loading" class="absolute inset-y-0 right-0 pr-3 flex items-center htmx-indicator">
+                        <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-primary-600"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Projects Container -->
+        <div id="projects-container">
+            {% include "components/project_list.html" %}
+        </div>
+        
+        <!-- No Projects Message -->
+        {% if not projects %}
+        <div class="text-center py-12">
+            <i class="fas fa-folder-open text-6xl text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No Projects Found</h3>
+            <p class="text-gray-500 dark:text-gray-500">Try adjusting your search terms or check back later for new projects.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+.htmx-indicator {
+    display: none;
+}
+
+.htmx-request .htmx-indicator {
+    display: flex;
+}
+
+.htmx-request.htmx-indicator {
+    display: flex;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Add some visual feedback for search
+    document.getElementById('project-search').addEventListener('input', function() {
+        // Add a subtle glow effect while searching
+        this.classList.add('ring-2', 'ring-primary-300');
+        setTimeout(() => {
+            this.classList.remove('ring-2', 'ring-primary-300');
+        }, 1000);
+    });
+</script>
+{% endblock %}
