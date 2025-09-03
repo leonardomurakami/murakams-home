@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Local Portfolio Project",
+    "description": "Example project stored locally",
+    "technologies": "FastAPI, HTMX",
+    "github_url": "https://github.com/example/portfolio",
+    "demo_url": null,
+    "image_url": null,
+    "featured": false
+  }
+]

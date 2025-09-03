@@ -1,20 +1,15 @@
-from fastapi import FastAPI, Request, Depends, Form, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse, Response
+from fastapi import FastAPI, Request, Form, HTTPException
+from fastapi.responses import HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from sqlalchemy.orm import Session
 import httpx
 from typing import Optional
 
-from .database import get_db, engine
-from .models import Base, Project, Contact
 from .config import settings
 from .services.github import GitHubService
 from .services.email import EmailService
 from .services.pdf import PDFService
-
-# Create database tables
-Base.metadata.create_all(bind=engine)
+from .local_data import load_projects, save_contact
 
 app = FastAPI(title="Personal Portfolio", description="Leonardo's Personal Website")
 
@@ -43,16 +38,16 @@ async def about(request: Request):
 
 
 @app.get("/projects", response_class=HTMLResponse)
-async def projects(request: Request, search: Optional[str] = None, db: Session = Depends(get_db)):
+async def projects(request: Request, search: Optional[str] = None):
     """Projects page with filtering"""
     # Get GitHub repositories
     github_repos = await github_service.get_repositories()
-    
-    # Get local projects from database
-    local_projects = db.query(Project).all()
-    
+
+    # Get local projects from JSON
+    local_projects = load_projects()
+
     # Combine and filter projects if search term provided
-    all_projects = github_repos + [project.__dict__ for project in local_projects]
+    all_projects = github_repos + local_projects
     
     if search:
         all_projects = [
@@ -80,21 +75,18 @@ async def contact_submit(
     name: str = Form(...),
     email: str = Form(...),
     message: str = Form(...),
-    db: Session = Depends(get_db)
 ):
     """Handle contact form submission"""
     try:
-        # Save to database
-        contact_entry = Contact(name=name, email=email, message=message)
-        db.add(contact_entry)
-        db.commit()
-        
+        # Save locally
+        save_contact(name, email, message)
+
         # Send email
         await email_service.send_contact_email(name, email, message)
-        
+
         # Return success response (HTMX will handle this)
         return templates.TemplateResponse("components/contact_success.html", {"request": request})
-        
+
     except Exception as e:
         return templates.TemplateResponse("components/contact_error.html", {
             "request": request,
@@ -136,16 +128,16 @@ async def download_resume_pdf(language: str = "en"):
 
 # HTMX endpoints for dynamic content
 @app.get("/htmx/projects/search")
-async def htmx_projects_search(request: Request, q: str = "", db: Session = Depends(get_db)):
+async def htmx_projects_search(request: Request, q: str = ""):
     """HTMX endpoint for project search"""
     # Get GitHub repositories
     github_repos = await github_service.get_repositories()
-    
-    # Get local projects from database
-    local_projects = db.query(Project).all()
-    
+
+    # Get local projects from JSON
+    local_projects = load_projects()
+
     # Combine and filter projects
-    all_projects = github_repos + [project.__dict__ for project in local_projects]
+    all_projects = github_repos + local_projects
     
     if q:
         all_projects = [
