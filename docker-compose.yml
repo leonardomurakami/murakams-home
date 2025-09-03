@@ -10,17 +10,8 @@ services:
       - .:/app
       - ./static:/app/static
       - ./templates:/app/templates
-    environment:
-      - DEBUG=true
-      - DATABASE_URL=postgresql://portfolio_user:portfolio_password@db:5432/portfolio_db
-      - GITHUB_USERNAME=${GITHUB_USERNAME}
-      - GITHUB_TOKEN=${GITHUB_TOKEN}
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_USERNAME=${SMTP_USERNAME}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-      - CONTACT_EMAIL=${CONTACT_EMAIL}
-      - SECRET_KEY=${SECRET_KEY:-your-secret-key-change-this}
+    env_file:
+      - .env
     depends_on:
       - db
       - redis
@@ -31,10 +22,8 @@ services:
   db:
     image: postgres:15-alpine
     container_name: portfolio_db
-    environment:
-      - POSTGRES_DB=portfolio_db
-      - POSTGRES_USER=portfolio_user
-      - POSTGRES_PASSWORD=portfolio_password
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
