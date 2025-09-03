@@ -7,15 +7,17 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Resume</h1>
-            <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+
+
+            <h1 id="resume-title" class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Resume</h1>
+            <p id="resume-subtitle" class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                 A comprehensive overview of my professional experience, skills, and achievements.
             </p>
             <div class="mt-6">
-                <a href="#" 
+                <a id="download-btn" href="/resume/download?language=en" 
                    class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors">
                     <i class="fas fa-download mr-2"></i>
-                    Download PDF
+                    <span id="download-text">Download PDF</span>
                 </a>
             </div>
         </div>
@@ -24,7 +26,15 @@
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
             <!-- Personal Info Header -->
             <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-8 text-white">
-                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 relative">
+                    <!-- Language Toggle - Top Right -->
+                    <div class="absolute top-0 right-0">
+                        <button id="language-toggle" class="flex items-center px-4 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer text-white">
+                            <i class="fas fa-globe mr-2"></i>
+                            <span id="toggle-text">Mudar para português</span>
+                        </button>
+                    </div>
+                    
                     <div class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center p-4">
                         <img src="/static/img/logo_no_background.svg" alt="Leonardo Murakami Logo" class="w-full h-full object-contain">
                     </div>
@@ -38,7 +48,7 @@
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-map-marker-alt mr-2"></i>
-                                Brazil - Remote Available
+                                <span id="personal-location">Brazil</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fab fa-github mr-2"></i>
@@ -73,97 +83,157 @@
                         Professional Experience
                     </h3>
                     
-                    <div class="space-y-6">
-                        <!-- Current Role -->
-                        <div class="border-l-4 border-primary-600 pl-6">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Site Reliability Engineer L2</h4>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2025 - Present</span>
+                    <!-- Company: Loft -->
+                    <div class="mb-8">
+                        <!-- Company Header -->
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-building text-primary-600 dark:text-primary-400 text-xl"></i>
                             </div>
-                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
-                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
-                                    Leading incident response and post-mortem processes to maintain high system availability
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
-                                    Designing and implementing monitoring, alerting, and observability solutions
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-2 mt-1 text-sm"></i>
-                                    Mentoring junior SREs and establishing reliability best practices across teams
-                                </li>
-                            </ul>
+                            <div>
+                                <h4 class="text-2xl font-bold text-gray-900 dark:text-white">Loft</h4>
+                                <p class="text-gray-600 dark:text-gray-400">Dec 2019 - Present • 5+ years • Remote</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-500">Proptech / Real Estate Technology</p>
+                            </div>
                         </div>
                         
-                        <!-- Previous Role -->
-                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Site Reliability Engineer</h4>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2024 - Dec 2024</span>
+                        <!-- Timeline -->
+                        <div class="relative">
+                            <!-- Timeline line -->
+                            <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-600 via-primary-400 to-gray-300 dark:to-gray-600"></div>
+                            
+                            <!-- Timeline items -->
+                            <div class="space-y-8">
+                                <!-- Current Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Site Reliability Engineer</h5>
+                                            <span class="text-sm font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900 px-3 py-1 rounded-full">Feb 2024 - Present</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-3 mt-1 text-sm"></i>
+                                                <span>Implemented a unified Infrastructure as Code (IaC) repository using Terraform, introducing standardized structure, reusable modules, and best practices to accelerate infrastructure delivery. Developed internal Terraform blueprints and modules to help developers quickly provision compliant cloud resources, reducing onboarding time and configuration errors. Automated deployment workflows with Atlantis, enabling safe, collaborative infrastructure changes through pull request automation, policy checks, and streamlined approvals, significantly improving developer experience and operational reliability.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-3 mt-1 text-sm"></i>
+                                                <span>Led the implementation of HashiCorp Vault as the primary secrets manager for all Kubernetes clusters, designing secure authentication and access policies for both applications and developers. Automated secret injection into workloads using Vault Secrets Operator and Kubernetes ServiceAccounts, reducing manual credential handling and improving compliance. Developed onboarding documentation and training sessions to enable teams to adopt secure secret management practices, resulting in faster, safer deployments and a significant reduction in security incidents related to credential exposure.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-primary-600 dark:text-primary-400 mr-3 mt-1 text-sm"></i>
+                                                <span>Developed an internal engineering assistant and MCP server—an AI agent leveraging APIs from OpenAI, Claude, and others—to access internal data sources such as Jira (read-only), GitHub, and Confluence documentation. This tool streamlined information retrieval for engineers, improving productivity and decision-making by providing contextual insights and automating knowledge discovery across internal platforms.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Previous Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-primary-500 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Site Reliability Engineer</h5>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">May 2023 - Feb 2024</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Led the migration of over 20 microservices and internal tools from a legacy Jenkins-based CI/CD environment to a modern development Kubernetes cluster. Standardized deployment manifests and leveraged an existing GitHub Action integrated with ArgoCD to automate application delivery. Collaborated with development teams to refactor build pipelines, troubleshoot containerization issues, and ensure zero-downtime cutovers. This initiative improved infrastructure reliability, reduced deployment times, and established a scalable foundation for future growth.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Designed and implemented a robust sandbox/internal homologation environment, empowering developers to safely validate infrastructure and application changes without impacting production. Architected automated workflows to restore production database backups into development clusters, incorporating data sanitization steps to remove or obfuscate sensitive information such as user credentials and PII. This initiative accelerated feature testing, improved developer confidence, and ensured compliance with data privacy requirements during development and QA cycles.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Participated in weekly on-call rotations and incident response procedures.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- MLOps Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-primary-400 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Junior MLOps Engineer</h5>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">May 2022 - May 2023</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Collaborated with data scientists and engineers to design and implement internal tools that accelerated AI development workflows. Co-developed a robust Python library that abstracted complex data retrieval, preprocessing, and model training tasks, enabling data teams to rapidly prototype and deploy machine learning models. The library featured standardized interfaces for accessing data from multiple sources, automated feature engineering utilities, and reusable model training pipelines, significantly reducing development time and improving code consistency across projects.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Assisted in maintaining and optimizing the Amazon SageMaker environment to enable data scientists to efficiently train and test machine learning models. Implemented best practices for resource allocation and security, ensuring that users had access to scalable compute resources without bottlenecks or slowdowns. Automated environment monitoring and cost controls, provided technical support for troubleshooting training jobs, and collaborated with data scientists to streamline onboarding and improve experiment reproducibility. These efforts ensured a secure, high-performance platform for rapid model development and testing.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- Data Scientist Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-gray-400 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Data Scientist</h5>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">Mar 2021 - May 2022</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Created one of the company's first AI model APIs, transitioning the pricing model from a batch processing approach to real-time inference. This shift significantly increased speed and enabled new consumer experiences by allowing instant property price estimates and more dynamic product features.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Contributed to the refactoring of existing pricing models by designing and implementing a modular framework. This new architecture separated data preprocessing, feature engineering, model training, and evaluation components, making it easier for the team to experiment with different features, algorithms, and validation strategies. Developed reusable interfaces and configuration options that allowed data scientists to quickly swap in new model types or feature sets, accelerating experimentation cycles and improving the overall robustness and maintainability of the codebase.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Data Scientist Intern Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-gray-400 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Data Scientist Intern</h5>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">Feb 2020 - Mar 2021</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Tested the features collected during the summer internship in evaluation models to determine which ones contributed positively to predictive performance and which ones added unnecessary complexity. Conducted systematic experiments to assess the impact of each feature, helping the team focus on the most valuable data sources for real estate price modeling.</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Performed analytical studies to support the team and company in making strategic decisions. For example, conducted research to determine whether the company was pricing properties competitively in specific neighborhoods, and analyzed whether data from certain notary offices could be considered reliable when compared to others. These studies provided actionable insights that informed business strategy and data quality improvements.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Summer Intern Role -->
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-4 w-4 h-4 bg-gray-300 rounded-full border-4 border-white dark:border-gray-800 shadow-sm"></div>
+                                    <div class="ml-12 bg-white dark:bg-gray-700 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 p-6 flex-1">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                                            <h5 class="text-lg font-semibold text-gray-900 dark:text-white">Data Scientist Summer Intern</h5>
+                                            <span class="text-sm font-medium text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-600 px-3 py-1 rounded-full">Dec 2019 - Feb 2020</span>
+                                        </div>
+                                        <ul class="text-gray-600 dark:text-gray-300 space-y-3">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-check-circle text-gray-500 mr-3 mt-1 text-sm"></i>
+                                                <span>Helped collect and scrape features to support real estate pricing models, including data such as airplane routes, nearby trees, points of interest (POIs), schools, and more.</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
-                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Managed Kubernetes clusters and automated infrastructure deployments using Terraform
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Implemented monitoring and alerting systems to proactively identify system issues
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Participated in on-call rotations and incident response procedures
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <!-- MLOps Role -->
-                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior MLOps Engineer</h4>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2022 - Dec 2023</span>
-                            </div>
-                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
-                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Built and maintained ML model deployment pipelines using Docker and Kubernetes
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Developed infrastructure automation for ML training and inference workloads
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Collaborated with data science teams to productionize machine learning models
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <!-- Early Roles -->
-                        <div class="border-l-4 border-gray-300 dark:border-gray-600 pl-6">
-                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Junior Data Scientist → Data Scientist Intern</h4>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Jan 2019 - Dec 2021</span>
-                            </div>
-                            <p class="text-primary-600 dark:text-primary-400 font-medium mb-3">Loft • Remote</p>
-                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Developed machine learning models for real estate price prediction and market analysis
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Created data pipelines and ETL processes using Python and SQL
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-gray-400 mr-2 mt-1 text-sm"></i>
-                                    Collaborated with product teams to deliver data-driven insights and recommendations
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </section>
@@ -294,4 +364,241 @@
         </div>
     </div>
 </div>
+
+<style>
+#language-toggle {
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+#language-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #language-toggle {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        margin-bottom: 4px;
+    }
+    
+    .absolute.top-0.right-0 {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        order: -1;
+        align-self: center;
+    }
+}
+</style>
+
+<script>
+let currentLanguage = 'en';
+let localeData = {};
+
+// Load locale data
+async function loadLocaleData(lang) {
+    try {
+        const response = await fetch(`/static/locales/${lang}.json`);
+        if (!response.ok) throw new Error(`Failed to load ${lang} locale`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Error loading locale ${lang}:`, error);
+        return null;
+    }
+}
+
+// Language switch functionality
+document.addEventListener('DOMContentLoaded', async function() {
+    const languageToggle = document.getElementById('language-toggle');
+    const toggleText = document.getElementById('toggle-text');
+
+    // Load both locale files
+    localeData.en = await loadLocaleData('en');
+    localeData.pt = await loadLocaleData('pt');
+
+    // Set initial button text (shows target language)
+    updateToggleText();
+
+    // Add click event to toggle button
+    if (languageToggle) {
+        languageToggle.addEventListener('click', function() {
+            const newLang = currentLanguage === 'en' ? 'pt' : 'en';
+            switchLanguage(newLang);
+        });
+    }
+
+    function switchLanguage(lang) {
+        if (lang === currentLanguage) return;
+        if (!localeData[lang]) return;
+
+        currentLanguage = lang;
+
+        // Update toggle button text to show the target language
+        updateToggleText();
+
+        // Update content
+        updateContent(lang);
+    }
+
+    function updateToggleText() {
+        // Show the text for the target language (the one you'll switch to)
+        const targetLang = currentLanguage === 'en' ? 'pt' : 'en';
+        if (toggleText && localeData[currentLanguage]) {
+            toggleText.textContent = localeData[currentLanguage].page.toggleText;
+        }
+    }
+
+    function updateContent(lang) {
+        const data = localeData[lang];
+
+        // Update main content
+        document.getElementById('resume-title').textContent = data.page.title;
+        document.getElementById('resume-subtitle').textContent = data.page.subtitle;
+        document.getElementById('download-text').textContent = data.page.downloadText;
+        document.getElementById('download-btn').href = `/resume/download?language=${lang}`;
+        
+        // Update toggle button text
+        if (toggleText) {
+            toggleText.textContent = data.page.toggleText;
+        }
+        
+        // Update personal information
+        document.getElementById('personal-location').textContent = data.personal.location;
+
+        // Update section titles
+        updateElementWithIcon('h3', data.sections.professionalSummary, 0);
+        updateElementWithIcon('h3', data.sections.professionalExperience, 1);
+        updateElementWithIcon('h3', data.sections.technicalSkills, 2);
+        updateElementWithIcon('h3', data.sections.education, 3);
+
+        // Update professional summary text
+        const summaryP = document.querySelector('section p.text-gray-600');
+        if (summaryP) {
+            summaryP.textContent = data.summary;
+        }
+
+        // Update company info
+        const companyPeriod = document.querySelector('.company-info .text-gray-600');
+        if (companyPeriod) {
+            companyPeriod.textContent = data.company.period;
+        }
+
+        const companyDesc = document.querySelector('.company-info .text-sm');
+        if (companyDesc) {
+            companyDesc.textContent = data.company.description;
+        }
+
+        // Update role achievements
+        updateRoleAchievements(data.roles);
+
+        // Update skills categories
+        const skillCategories = document.querySelectorAll('.grid h4');
+        const skillCategoryKeys = [
+            'programmingLanguages',
+            'cloudInfrastructure', 
+            'monitoringObservability',
+            'dataML',
+            'toolsMethodologies'
+        ];
+
+        skillCategories.forEach((cat, index) => {
+            if (skillCategoryKeys[index] && data.skills.categories[skillCategoryKeys[index]]) {
+                cat.textContent = data.skills.categories[skillCategoryKeys[index]];
+            }
+        });
+
+        // Update education section
+        const educationSection = document.querySelector('.border-l-4.border-primary-600.pl-6');
+        if (educationSection) {
+            const educationTitle = educationSection.querySelector('h4');
+            if (educationTitle) {
+                educationTitle.textContent = data.education.degree;
+            }
+
+            const educationInst = educationSection.querySelector('.text-primary-600');
+            if (educationInst) {
+                educationInst.textContent = data.education.institution;
+            }
+
+            const educationDesc = educationSection.querySelector('.text-gray-600');
+            if (educationDesc) {
+                educationDesc.textContent = data.education.description;
+            }
+        }
+
+        // Update CTA section (use .rounded-lg to distinguish from header)
+        const ctaTitle = document.querySelector('.bg-gradient-to-r.rounded-lg h2');
+        if (ctaTitle) {
+            ctaTitle.textContent = data.cta.title;
+        }
+
+        const ctaSubtitle = document.querySelector('.bg-gradient-to-r.rounded-lg p.text-lg');
+        if (ctaSubtitle) {
+            ctaSubtitle.textContent = data.cta.subtitle;
+        }
+
+        const ctaButton = document.querySelector('.bg-gradient-to-r.rounded-lg a span');
+        if (ctaButton) {
+            ctaButton.textContent = data.cta.button;
+        }
+    }
+
+    function updateRoleAchievements(roles) {
+        // Get all role experience cards - they are the divs with timeline structure
+        const experienceCards = document.querySelectorAll('.ml-12.bg-white, .ml-12.bg-gray-700');
+        
+        experienceCards.forEach((card, index) => {
+            if (roles[index]) {
+                // Update role title (h5 element)
+                const roleTitle = card.querySelector('h5');
+                if (roleTitle) {
+                    roleTitle.textContent = roles[index].title;
+                }
+
+                // Update role period (span with rounded-full class)
+                const rolePeriod = card.querySelector('span.rounded-full');
+                if (rolePeriod) {
+                    rolePeriod.textContent = roles[index].period;
+                }
+
+                // Update achievements (li spans)
+                const achievementsList = card.querySelectorAll('ul li span');
+                achievementsList.forEach((achievement, achIndex) => {
+                    if (roles[index].achievements[achIndex]) {
+                        achievement.textContent = roles[index].achievements[achIndex];
+                    }
+                });
+            }
+        });
+    }
+
+    function updateElementWithIcon(tag, text, index) {
+        const elements = document.querySelectorAll(tag);
+        if (elements[index]) {
+            // Find the text node within the element (skip icon)
+            const textNode = Array.from(elements[index].childNodes).find(node => 
+                node.nodeType === Node.TEXT_NODE && node.textContent.trim()
+            );
+            if (textNode) {
+                textNode.textContent = ' ' + text;
+            } else {
+                // If no text node found, update the whole element but preserve icons
+                const icon = elements[index].querySelector('i');
+                elements[index].innerHTML = '';
+                if (icon) {
+                    elements[index].appendChild(icon);
+                    elements[index].appendChild(document.createTextNode(' ' + text));
+                } else {
+                    elements[index].textContent = text;
+                }
+            }
+        }
+    }
+});
+</script>
+
 {% endblock %}

@@ -56,50 +56,6 @@ services:
     restart: unless-stopped
     command: redis-server --appendonly yes
 
-  nginx:
-    image: nginx:alpine
-    container_name: portfolio_nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/sites-available:/etc/nginx/sites-available
-      - ./static:/var/www/static
-      - ./build:/var/www/build  # Frontend build folder
-    depends_on:
-      - web
-    networks:
-      - portfolio_network
-    restart: unless-stopped
-
-  # Optional: Add a development database viewer
-  adminer:
-    image: adminer
-    container_name: portfolio_adminer
-    ports:
-      - "8080:8080"
-    depends_on:
-      - db
-    networks:
-      - portfolio_network
-    restart: unless-stopped
-    profiles:
-      - dev
-
-  # Local SMTP server for testing emails
-  mailhog:
-    image: mailhog/mailhog
-    container_name: portfolio_mailhog
-    ports:
-      - "1025:1025"  # SMTP port
-      - "8025:8025"  # Web UI port
-    networks:
-      - portfolio_network
-    restart: unless-stopped
-    profiles:
-      - dev
-
 volumes:
   postgres_data:
   redis_data:
