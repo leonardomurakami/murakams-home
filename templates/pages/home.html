@@ -178,7 +178,7 @@
     </div>
 </section>
 
-<!-- Recent Projects Preview -->
+<!-- Featured Projects Section -->
 <section class="py-16 bg-slate-800 dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
@@ -189,62 +189,13 @@
                 Some of my recent work that I'm particularly proud of
             </p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <!-- Project Card 1 -->
-            <div class="bg-slate-700 dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
-                <div class="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
-                    <i class="fas fa-project-diagram text-4xl text-white"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-white mb-2">Kubernetes Infrastructure</h3>
-                    <p class="text-gray-300 mb-4">
-                        Scalable Kubernetes infrastructure with automated deployments and monitoring.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">Python</span>
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">Kubernetes</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project Card 2 -->
-            <div class="bg-slate-700 dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
-                <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                    <i class="fas fa-mobile-alt text-4xl text-white"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-white mb-2">Observability Stack</h3>
-                    <p class="text-gray-300 mb-4">
-                        Complete monitoring and alerting system with Prometheus, Grafana, and custom dashboards.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">Prometheus</span>
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">Grafana</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project Card 3 -->
-            <div class="bg-slate-700 dark:bg-slate-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden">
-                <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-                    <i class="fas fa-database text-4xl text-white"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold text-white mb-2">Infrastructure as Code</h3>
-                    <p class="text-gray-300 mb-4">
-                        Terraform modules for AWS infrastructure with automated CI/CD pipelines.
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">Terraform</span>
-                        <span class="px-3 py-1 bg-cyan-900 text-cyan-200 text-sm rounded-full">AWS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="text-center">
-            <a href="/projects" 
+
+        {% with projects=featured_projects %}
+            {% include "components/project_list.html" %}
+        {% endwith %}
+
+        <div class="text-center mt-8">
+            <a href="/projects"
                class="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200">
                 View All Projects
                 <i class="fas fa-arrow-right ml-2"></i>
