@@ -11,3 +11,4 @@ httpx>=0.25.2
 pydantic[email]>=2.5.0
 aiofiles>=23.2.1
 pydantic-settings>=2.0.3
+weasyprint>=61.2

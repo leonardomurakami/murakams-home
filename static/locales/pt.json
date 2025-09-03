@@ -1,0 +1,97 @@
+{
+  "page": {
+    "title": "Currículo",
+    "subtitle": "Uma visão abrangente da minha experiência profissional, habilidades e conquistas.",
+    "downloadText": "Baixar PDF",
+    "toggleText": "Switch to English"
+  },
+  "sections": {
+    "professionalSummary": "Resumo Profissional",
+    "professionalExperience": "Experiência Profissional",
+    "technicalSkills": "Habilidades Técnicas",
+    "education": "Educação"
+  },
+  "personal": {
+    "name": "Leonardo Murakami",
+    "title": "Site Reliability Engineer",
+    "email": "contato@murakams.com",
+    "location": "Brasil",
+    "github": "github.com/leonardomurakami"
+  },
+  "summary": "Site Reliability Engineer apaixonado com mais de 6 anos de experiência em Ciência de Dados, MLOps e Site Reliability Engineering. Especialista em infraestrutura de nuvem AWS, orquestração Kubernetes e Infraestrutura como Código. Sólida experiência na construção e manutenção de sistemas altamente disponíveis com foco em confiabilidade, escalabilidade e performance. Atualmente cursando Ciência da Computação no IME-USP enquanto trabalha em tempo integral.",
+  "company": {
+    "name": "Loft",
+    "period": "Dez 2019 - Presente • 5+ anos • Remoto",
+    "description": "Proptech / Tecnologia Imobiliária"
+  },
+  "roles": [
+    {
+      "title": "Site Reliability Engineer",
+      "period": "Fev 2024 - Presente",
+      "achievements": [
+        "Implementou um repositório unificado de Infraestrutura como Código (IaC) usando Terraform, introduzindo estrutura padronizada, módulos reutilizáveis e melhores práticas para acelerar a entrega de infraestrutura. Desenvolveu blueprints e módulos internos de Terraform para ajudar desenvolvedores a provisionar rapidamente recursos de nuvem compatíveis, reduzindo o tempo de onboarding e erros de configuração. Automatizou fluxos de trabalho de deployment com Atlantis, permitindo mudanças de infraestrutura seguras e colaborativas através de automação de pull requests, verificações de política e aprovações simplificadas, melhorando significativamente a experiência do desenvolvedor e a confiabilidade operacional.",
+        "Liderou a implementação do HashiCorp Vault como gerenciador principal de segredos para todos os clusters Kubernetes, projetando autenticação segura e políticas de acesso para aplicações e desenvolvedores. Automatizou a injeção de segredos em workloads usando Vault Secrets Operator e ServiceAccounts do Kubernetes, reduzindo o manuseio manual de credenciais e melhorando a conformidade. Desenvolveu documentação de onboarding e sessões de treinamento para permitir que equipes adotassem práticas seguras de gerenciamento de segredos, resultando em deployments mais rápidos e seguros e uma redução significativa em incidentes de segurança relacionados à exposição de credenciais.",
+        "Desenvolveu um assistente de engenharia interno e servidor MCP—um agente de IA que utiliza APIs do OpenAI, Claude e outros—para acessar fontes de dados internas como Jira (somente leitura), GitHub e documentação do Confluence. Esta ferramenta simplificou a recuperação de informações para engenheiros, melhorando a produtividade e tomada de decisões ao fornecer insights contextuais e automatizar a descoberta de conhecimento através de plataformas internas."
+      ]
+    },
+    {
+      "title": "Site Reliability Engineer Júnior",
+      "period": "Mai 2023 - Fev 2024",
+      "achievements": [
+        "Liderou a migração de mais de 20 microsserviços e ferramentas internas de um ambiente CI/CD legado baseado em Jenkins para um cluster Kubernetes moderno de desenvolvimento. Padronizou manifestos de deployment e utilizou uma GitHub Action existente integrada ao ArgoCD para automatizar a entrega de aplicações. Colaborou com equipes de desenvolvimento para refatorar pipelines de build, solucionar problemas de containerização e garantir cutovers sem downtime. Esta iniciativa melhorou a confiabilidade da infraestrutura, reduziu tempos de deployment e estabeleceu uma base escalável para crescimento futuro.",
+        "Projetou e implementou um ambiente robusto de sandbox/homologação interna, capacitando desenvolvedores a validar com segurança mudanças de infraestrutura e aplicação sem impactar a produção. Arquitetou fluxos de trabalho automatizados para restaurar backups de banco de dados de produção em clusters de desenvolvimento, incorporando etapas de sanitização de dados para remover ou ofuscar informações sensíveis como credenciais de usuário e PII. Esta iniciativa acelerou testes de funcionalidades, melhorou a confiança do desenvolvedor e garantiu conformidade com requisitos de privacidade de dados durante ciclos de desenvolvimento e QA.",
+        "Participou de rotações semanais de plantão e procedimentos de resposta a incidentes."
+      ]
+    },
+    {
+      "title": "Engenheiro MLOps Júnior",
+      "period": "Mai 2022 - Mai 2023",
+      "achievements": [
+        "Colaborou com cientistas de dados e engenheiros para projetar e implementar ferramentas internas que aceleraram fluxos de trabalho de desenvolvimento de IA. Co-desenvolveu uma biblioteca Python robusta que abstraiu tarefas complexas de recuperação de dados, pré-processamento e treinamento de modelos, permitindo que equipes de dados prototipem e implementem rapidamente modelos de machine learning. A biblioteca apresentava interfaces padronizadas para acessar dados de múltiplas fontes, utilitários automatizados de engenharia de features e pipelines reutilizáveis de treinamento de modelos, reduzindo significativamente o tempo de desenvolvimento e melhorando a consistência de código em projetos.",
+        "Auxiliou na manutenção e otimização do ambiente Amazon SageMaker para permitir que cientistas de dados treinassem e testassem modelos de machine learning de forma eficiente. Implementou melhores práticas para alocação de recursos e segurança, garantindo que usuários tivessem acesso a recursos computacionais escaláveis sem gargalos ou lentidão. Automatizou monitoramento de ambiente e controles de custo, forneceu suporte técnico para solução de problemas em jobs de treinamento e colaborou com cientistas de dados para simplificar onboarding e melhorar a reprodutibilidade de experimentos. Estes esforços garantiram uma plataforma segura e de alta performance para desenvolvimento e teste rápido de modelos."
+      ]
+    },
+    {
+      "title": "Cientista de Dados Júnior",
+      "period": "Mar 2021 - Mai 2022",
+      "achievements": [
+        "Criou uma das primeiras APIs de modelos de IA da empresa, fazendo a transição do modelo de preços de uma abordagem de processamento em lote para inferência em tempo real. Esta mudança aumentou significativamente a velocidade e permitiu novas experiências do consumidor ao possibilitar estimativas instantâneas de preços de propriedades e recursos de produto mais dinâmicos.",
+        "Contribuiu para a refatoração de modelos de preços existentes projetando e implementando uma estrutura modular. Esta nova arquitetura separou componentes de pré-processamento de dados, engenharia de features, treinamento de modelos e avaliação, facilitando para a equipe experimentar com diferentes features, algoritmos e estratégias de validação. Desenvolveu interfaces reutilizáveis e opções de configuração que permitiram aos cientistas de dados trocar rapidamente novos tipos de modelo ou conjuntos de features, acelerando ciclos de experimentação e melhorando a robustez geral e manutenibilidade do código."
+      ]
+    },
+    {
+      "title": "Estagiário de Ciência de Dados",
+      "period": "Fev 2020 - Mar 2021",
+      "achievements": [
+        "Testou as features coletadas durante o estágio de verão em modelos de avaliação para determinar quais contribuíram positivamente para o desempenho preditivo e quais adicionaram complexidade desnecessária. Conduziu experimentos sistemáticos para avaliar o impacto de cada feature, ajudando a equipe a focar nas fontes de dados mais valiosas para modelagem de preços imobiliários.",
+        "Realizou estudos analíticos para apoiar a equipe e empresa na tomada de decisões estratégicas. Por exemplo, conduziu pesquisas para determinar se a empresa estava precificando propriedades competitivamente em bairros específicos, e analisou se dados de determinados cartórios poderiam ser considerados confiáveis quando comparados a outros. Estes estudos forneceram insights acionáveis que informaram estratégia de negócio e melhorias na qualidade de dados."
+      ]
+    },
+    {
+      "title": "Estagiário de Verão em Ciência de Dados",
+      "period": "Dez 2019 - Fev 2020",
+      "achievements": [
+        "Ajudou a coletar e extrair features para apoiar modelos de preços imobiliários, incluindo dados como rotas de aviões, árvores próximas, pontos de interesse (POIs), escolas e mais."
+      ]
+    }
+  ],
+  "skills": {
+    "categories": {
+      "programmingLanguages": "Linguagens de Programação",
+      "cloudInfrastructure": "Nuvem e Infraestrutura",
+      "monitoringObservability": "Monitoramento e Observabilidade",
+      "dataML": "Dados e ML",
+      "toolsMethodologies": "Ferramentas e Metodologias"
+    }
+  },
+  "education": {
+    "degree": "Bacharelado em Ciência da Computação",
+    "institution": "IME-USP (Instituto de Matemática e Estatística - Universidade de São Paulo) • Atualmente Matriculado",
+    "description": "Cursando graduação enquanto trabalha em tempo integral. Focado em algoritmos, estruturas de dados, engenharia de software e design de sistemas."
+  },
+  "cta": {
+    "title": "Interessado em Trabalhar Junto?",
+    "subtitle": "Estou sempre aberto para discutir novas oportunidades e projetos empolgantes.",
+    "button": "Entre em Contato"
+  }
+}

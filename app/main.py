@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, Depends, Form, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -11,6 +11,7 @@ from .models import Base, Project, Contact
 from .config import settings
 from .services.github import GitHubService
 from .services.email import EmailService
+from .services.pdf import PDFService
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
@@ -26,6 +27,7 @@ templates = Jinja2Templates(directory="templates")
 # Services
 github_service = GitHubService()
 email_service = EmailService()
+pdf_service = PDFService()
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -104,6 +106,32 @@ async def contact_submit(
 async def resume(request: Request):
     """Resume page"""
     return templates.TemplateResponse("pages/resume.html", {"request": request})
+
+
+@app.get("/resume/download")
+async def download_resume_pdf(language: str = "en"):
+    """Download resume as PDF
+    
+    Args:
+        language: Language code ('en' for English, 'pt' for Portuguese)
+    """
+    try:
+        # Generate PDF
+        pdf_content = pdf_service.generate_resume_pdf(language)
+        
+        # Set filename based on language
+        filename = f"Leonardo_Murakami_Resume_{'PT' if language == 'pt' else 'EN'}.pdf"
+        
+        # Return PDF response
+        return Response(
+            content=pdf_content,
+            media_type="application/pdf",
+            headers={
+                "Content-Disposition": f"attachment; filename={filename}"
+            }
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error generating PDF: {str(e)}")
 
 
 # HTMX endpoints for dynamic content
