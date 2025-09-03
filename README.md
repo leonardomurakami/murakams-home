@@ -10,7 +10,6 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 - **Dynamic Content**: Real-time search and filtering with HTMX
 - **GitHub Integration**: Automatically displays your GitHub repositories
 - **Contact Form**: Functional contact form with email notifications
-- **Database Support**: SQLite for development, PostgreSQL for production
 - **Docker Ready**: Full containerization with docker-compose
 - **Modular Structure**: Easy to extend with new pages and features
 
@@ -18,7 +17,6 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 
 ### Backend
 - **FastAPI** - Modern, fast web framework for building APIs
-- **SQLAlchemy** - SQL toolkit and ORM
 - **Jinja2** - Template engine for server-side rendering
 - **HTTPX** - Async HTTP client for GitHub API integration
 - **Pydantic** - Data validation using Python type annotations
@@ -31,7 +29,6 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 
 ### Infrastructure
 - **Docker** - Containerization
-- **PostgreSQL** - Production database
 - **Redis** - Caching (optional)
 - **Nginx** - Reverse proxy and static file serving
 
@@ -64,16 +61,15 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 
 3. **Start the development environment**
    ```bash
-   # Development with SQLite
+   # Development
    docker-compose -f docker-compose.dev.yml up --build
-   
-   # Production with PostgreSQL
+
+   # Production
    docker-compose up --build
    ```
 
 4. **Access the application**
    - Website: http://localhost:8000
-   - Database Admin (if enabled): http://localhost:8080
    - MailHog Email Testing (dev mode): http://localhost:8025
 
 ### Local Development
@@ -108,10 +104,6 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 Create a `.env` file based on `env.example`:
 
 ```env
-# Database Configuration
-DATABASE_URL=sqlite:///./portfolio.db
-# For production: postgresql://user:password@localhost/portfolio
-
 # GitHub Integration
 GITHUB_USERNAME=your-github-username
 GITHUB_TOKEN=your-github-token  # Optional, for higher rate limits
@@ -177,8 +169,6 @@ When using the development Docker Compose, the email service will automatically 
 │   ├── __init__.py
 │   ├── main.py              # FastAPI application
 │   ├── config.py            # Configuration settings
-│   ├── database.py          # Database setup
-│   ├── models.py            # SQLAlchemy models
 │   └── services/
 │       ├── github.py        # GitHub API integration
 │       └── email.py         # Email service
@@ -227,7 +217,7 @@ When using the development Docker Compose, the email service will automatically 
 ### Content
 
 - Update personal information in templates
-- Add your projects to the database or via GitHub integration
+- Add your projects to the JSON file or via GitHub integration
 - Customize the about page content
 - Update social media links in the footer
 - Replace logo files in `static/img/` with your own

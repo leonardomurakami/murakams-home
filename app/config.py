@@ -3,9 +3,6 @@ from typing import Optional
 
 
 class Settings(BaseSettings):
-    # Database
-    database_url: str = "sqlite:///./portfolio.db"
-    
     # GitHub
     github_username: Optional[str] = None
     github_token: Optional[str] = None

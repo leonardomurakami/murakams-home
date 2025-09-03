@@ -8,7 +8,6 @@ services:
       - .:/app
       - ./static:/app/static
       - ./templates:/app/templates
-      - ./data:/app/data  # For SQLite database
     env_file:
       - .env
     networks:

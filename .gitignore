@@ -71,11 +71,9 @@ ehthumbs.db
 Thumbs.db
 
 # Project specific
-portfolio.db
+# Local runtime files
 *.log
-data/
 logs/
-.pytest_cache/
 
 # Docker
 .dockerignore
