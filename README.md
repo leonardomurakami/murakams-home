@@ -29,7 +29,6 @@ A modern, responsive personal portfolio website built with **FastAPI** and **HTM
 
 ### Infrastructure
 - **Docker** - Containerization
-- **Redis** - Caching (optional)
 - **Nginx** - Reverse proxy and static file serving
 
 ### Dependency Management
