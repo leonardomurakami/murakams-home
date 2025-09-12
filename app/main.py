@@ -27,8 +27,23 @@ pdf_service = PDFService()
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
-    """Home page"""
-    return templates.TemplateResponse("pages/home.html", {"request": request})
+    """Home page with random GitHub projects"""
+    # Get GitHub repositories with error handling
+    try:
+        github_repos = await github_service.get_repositories(limit=20)  # Get more repos to have variety
+        
+        # Select 3 random projects (or fewer if less available)
+        import random
+        random_projects = random.sample(github_repos, min(3, len(github_repos))) if github_repos else []
+        
+    except Exception as e:
+        print(f"Error fetching GitHub repositories for home page: {e}")
+        random_projects = []
+    
+    return templates.TemplateResponse("pages/home.html", {
+        "request": request,
+        "random_projects": random_projects
+    })
 
 
 @app.get("/about", response_class=HTMLResponse)
