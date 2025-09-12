@@ -40,8 +40,12 @@ async def about(request: Request):
 @app.get("/projects", response_class=HTMLResponse)
 async def projects(request: Request, search: Optional[str] = None):
     """Projects page with filtering"""
-    # Get GitHub repositories
-    github_repos = await github_service.get_repositories()
+    # Get GitHub repositories with error handling
+    try:
+        github_repos = await github_service.get_repositories()
+    except Exception:
+        # If GitHub service fails, continue with empty list
+        github_repos = []
 
     # Get local projects from JSON
     local_projects = load_projects()
@@ -130,8 +134,12 @@ async def download_resume_pdf(language: str = "en"):
 @app.get("/htmx/projects/search")
 async def htmx_projects_search(request: Request, q: str = ""):
     """HTMX endpoint for project search"""
-    # Get GitHub repositories
-    github_repos = await github_service.get_repositories()
+    # Get GitHub repositories with error handling
+    try:
+        github_repos = await github_service.get_repositories()
+    except Exception:
+        # If GitHub service fails, continue with empty list
+        github_repos = []
 
     # Get local projects from JSON
     local_projects = load_projects()
