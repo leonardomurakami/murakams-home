@@ -8,10 +8,11 @@ class Settings(BaseSettings):
     github_token: Optional[str] = None
     
     # Email
-    smtp_host: str = "smtp.gmail.com"
+    smtp_host: str = "smtp-relay"
     smtp_port: int = 587
     smtp_username: Optional[str] = None
     smtp_password: Optional[str] = None
+    smtp_from: str = "noreply@murakams.com"
     contact_email: Optional[str] = None
     
     # App
