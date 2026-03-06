@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     
     # App
     secret_key: str = "your-secret-key-change-this"
-    debug: bool = True
+    debug: bool = False
     
     class Config:
         env_file = ".env"

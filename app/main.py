@@ -142,7 +142,7 @@ async def download_resume_pdf(language: str = "en"):
             }
         )
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error generating PDF: {str(e)}")
+        raise HTTPException(status_code=500, detail="Error generating PDF. Please try again later.")
 
 
 # HTMX endpoints for dynamic content
