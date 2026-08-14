@@ -25,9 +25,12 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install uv
 
-COPY requirements.txt uv.lock ./
+COPY pyproject.toml uv.lock ./
 
-RUN uv pip install --system --no-cache-dir -r requirements.txt \
+RUN uv export --frozen --no-dev --no-emit-project \
+        --format requirements.txt --output-file /tmp/requirements.lock \
+    && uv pip install --system --no-cache-dir -r /tmp/requirements.lock \
+    && rm -f /tmp/requirements.lock \
     && rm -rf $UV_CACHE_DIR
 
 COPY . .
